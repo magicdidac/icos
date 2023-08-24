@@ -18,8 +18,8 @@ declare module '@mui/material/Typography' {
     }
 }
 
-export const primaryColor = '#683ab7'
-export const secondaryColor = '#89b73a'
+export const primaryColor = '#6daaca'
+export const secondaryColor = grey[100]
 const fontSizeh1 = 'calc(40px + (46 - 30) * ((100vw - 200px) / 1620))'
 const fontSizeh2 = 'calc(30px + (46 - 30) * ((100vw - 200px) / 1620))'
 const fontSizeh3 = 'calc(25px + (46 - 30) * ((100vw - 200px) / 1620))'

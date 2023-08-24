@@ -1,5 +1,5 @@
 import { ArrowBackIos } from '@mui/icons-material';
-import { AppBar, IconButton, Stack, Toolbar, Typography, styled } from '@mui/material';
+import { AppBar, Container, IconButton, Stack, Toolbar, Typography, styled } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const StyledToolbar = styled(Toolbar)({
@@ -19,13 +19,15 @@ export const Header = () => {
     return (
         <AppBar position='sticky'>
             <StyledToolbar>
-                <Stack direction='row' alignItems='center' style={{ cursor: 'pointer' }} onClick={handleBackButton}>
-                    {location.pathname !== '/' && <IconButton><ArrowBackIos /></IconButton>}
-                    <Stack direction='row' gap='.5rem' alignItems='end'>
-                        <Typography variant='h6'>ICOS</Typography>
-                        <Typography variant='body2'>v {process.env.REACT_APP_VERSION}</Typography>
+                <Container>
+                    <Stack direction='row' alignItems='center' style={{ cursor: 'pointer' }} onClick={handleBackButton}>
+                        {location.pathname !== '/' && <IconButton><ArrowBackIos /></IconButton>}
+                        <Stack direction='row' gap='.5rem' alignItems='end'>
+                            <Typography variant='h6' color='white'>ICOS</Typography>
+                            <Typography variant='body2' color='whitesmoke'>v {process.env.REACT_APP_VERSION}</Typography>
+                        </Stack>
                     </Stack>
-                </Stack>
+                </Container>
             </StyledToolbar>
         </AppBar >
     )
