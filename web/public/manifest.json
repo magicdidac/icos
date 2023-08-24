@@ -1,6 +1,6 @@
 {
-  "short_name": "{Web site title}",
-  "name": "{Web site title}",
+  "short_name": "ICOS",
+  "name": "ICOS",
   "icons": [
     {
       "src": "favicon.ico",

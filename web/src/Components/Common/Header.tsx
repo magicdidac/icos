@@ -22,7 +22,7 @@ export const Header = () => {
                 <Stack direction='row' alignItems='center' style={{ cursor: 'pointer' }} onClick={handleBackButton}>
                     {location.pathname !== '/' && <IconButton><ArrowBackIos /></IconButton>}
                     <Stack direction='row' gap='.5rem' alignItems='end'>
-                        <Typography variant='h6'>[projectName]</Typography>
+                        <Typography variant='h6'>ICOS</Typography>
                         <Typography variant='body2'>v {process.env.REACT_APP_VERSION}</Typography>
                     </Stack>
                 </Stack>

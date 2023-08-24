@@ -1,6 +1,6 @@
 {
-  "name": "proyect-name",
-  "homepage": "",
+  "name": "icos",
+  "homepage": "https://icos.magicdidac.com",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
