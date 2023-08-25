@@ -6,7 +6,7 @@
         "declaration": true,
         "module": "commonjs",
         "jsx": "react-jsx",
-        "esModuleInterop": true,
+        "esModuleInterop": true
     },
     "include": [
         "src"
