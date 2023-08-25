@@ -1,9 +1,9 @@
-import { Button, Dialog, DialogActions, DialogContent } from "@mui/material"
+import { Button, Dialog, DialogActions, DialogContent, ThemeProvider } from "@mui/material"
 import { useState } from "react"
 import { IImageFile } from "../types"
 import { ImageDropper } from "./ImageDropper"
 import { uploadImage } from "../core"
-// import { webTheme } from "../theme"
+import { webTheme } from "../theme"
 
 interface IICOSDialogProps {
   open: boolean
@@ -40,19 +40,21 @@ export default ({ open, route, onClose, onSubmitImage }: IICOSDialogProps) => {
   }
 
   return (
-    < Dialog
-      open={open}
-      onClose={handleClose}
-      fullWidth
-      maxWidth='sm'
-    >
-      <DialogContent style={{ overflow: 'hidden' }}>
-        <ImageDropper image={image} onChangeImage={setImage} />
-      </DialogContent>
-      <DialogActions>
-        <Button variant='text' onClick={handleClose}>Cancel</Button>
-        <Button disabled={submitting} variant='contained' onClick={handleSubmit}>Subir image</Button>
-      </DialogActions>
-    </Dialog >
+    <ThemeProvider theme={webTheme}>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        fullWidth
+        maxWidth='sm'
+      >
+        <DialogContent style={{ overflow: 'hidden' }}>
+          <ImageDropper image={image} onChangeImage={setImage} />
+        </DialogContent>
+        <DialogActions>
+          <Button variant='text' onClick={handleClose}>Cancel</Button>
+          <Button disabled={submitting} variant='contained' onClick={handleSubmit}>Subir image</Button>
+        </DialogActions>
+      </Dialog >
+    </ThemeProvider>
   )
 }

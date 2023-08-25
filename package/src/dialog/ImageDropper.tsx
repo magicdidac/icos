@@ -74,7 +74,7 @@ export const ImageDropper = ({ image, onChangeImage }: IImageDropperProps) => {
             : <>
               {/* <Upload color='primary' fontSize='large' /> */}
               <Typography variant='body1'>Drag and drop your image here...</Typography>
-              {/* <Typography variant='mini'>Or click to browse it...</Typography> */}
+              <Typography variant='mini'>Or click to browse it...</Typography>
             </>
           }
         </Stack>

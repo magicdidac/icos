@@ -1,6 +1,6 @@
 {
   "name": "@magicdidac/icos",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "index.js",
   "types": "package.d.ts",
   "description": "Package to upload images to ICOS and dialog made with MUI",
