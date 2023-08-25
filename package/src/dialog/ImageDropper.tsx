@@ -1,4 +1,4 @@
-// import { Upload } from "@mui/icons-material"
+import { Upload } from "@mui/icons-material"
 import { Button, Stack, Typography } from "@mui/material"
 import { IImageFile } from "../types"
 import { DragEvent, useRef, useState } from "react"
@@ -72,7 +72,7 @@ export const ImageDropper = ({ image, onChangeImage }: IImageDropperProps) => {
           {isDragging ?
             <Typography variant="body1">Drop the image here</Typography>
             : <>
-              {/* <Upload color='primary' fontSize='large' /> */}
+              <Upload color='primary' fontSize='large' />
               <Typography variant='body1'>Drag and drop your image here...</Typography>
               <Typography variant='mini'>Or click to browse it...</Typography>
             </>
