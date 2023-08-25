@@ -1,0 +1,36 @@
+{
+  "name": "@magicdidac/icos",
+  "version": "0.0.1",
+  "main": "index.js",
+  "description": "Package to upload images to ICOS and dialog made with MUI",
+  "keywords": [],
+  "license": "MIT",
+  "author": "magicdidac",
+  "homepage": "https://github.com/magicdidac/icos/package#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/magicdidac/icos.git"
+  },
+  "scripts": {
+    "build": "tsc && yarn copy:package && yarn copy:readme",
+    "copy:package": "cp package.json ./dist",
+    "copy:readme": "cp README.md ./dist"
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.8.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.3",
+    "@mui/material": "^5.14.5",
+    "@types/node": "^20.4.8",
+    "@types/react": "^18.2.19",
+    "axios": "^1.4.0",
+    "react": "^18.2.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "basic-ftp": "^5.0.3",
+    "sharp": "^0.32.5"
+  }
+}

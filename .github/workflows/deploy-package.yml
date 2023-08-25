@@ -1,0 +1,50 @@
+name: Publish package
+
+on:
+  workflow_call:
+    secrets:
+      FTP_ACCOUNT:
+        required: true
+      FTP_PASSWORD:
+        required: true
+      GRAPHQL:
+        required: true
+      NPM_AUTH_TOKEN:
+        required: true
+  push:
+    branches:
+      - "main"
+    paths:
+      - "package/**"
+      - ".github/workflows/deploy-package.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Node setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+      
+      - name: Install packages
+        run: yarn install:package
+              
+      - name: Build package
+        run: yarn build:package
+        env:
+          GRAPHQL_ENDPOINT: ${{ secrets.GRAPHQL }}
+          FTP_ACCOUNT: ${{ secrets.FTP_ACCOUNT }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+
+      - name: Publish package
+        working-directory: ./package/dist
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}

@@ -2,10 +2,28 @@ import { gql } from 'apollo-server-lambda'
 
 export default gql`
 type Query {
-    getExample: [String]
+    getImage(route: String!): Image
+    getFolder(route: String!): [Image]
 }
 
 type Mutation {
-    addExample(message: String!): String!
+    uploadImage(route: String!, name: String!, url: String!): Image!
+    removeImage(route: String!, name: String!): Image!
+}
+
+type Image {
+    route: String!
+    name: String!
+    url: String!
+}
+
+type Folder {
+    route: String!
+    name: String!
+}
+
+type FolderInfo {
+    images: [Image]
+    folders: [Folder]
 }
 `
