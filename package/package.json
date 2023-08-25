@@ -17,19 +17,18 @@
     "copy:readme": "cp README.md ./dist"
   },
   "devDependencies": {
-    "@apollo/client": "^3.8.1",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.14.3",
-    "@mui/material": "^5.14.5",
-    "@types/node": "^20.4.8",
-    "@types/react": "^18.2.19",
-    "axios": "^1.4.0",
+    "@types/node": "^20.5.6",
+    "@types/react": "^18.2.21",
     "react": "^18.2.0",
     "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.2.2"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.6",
+    "@mui/material": "^5.14.6",
+    "axios": "^1.4.0",
     "basic-ftp": "^5.0.3",
     "sharp": "^0.32.5"
   }

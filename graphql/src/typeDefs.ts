@@ -3,7 +3,7 @@ import { gql } from 'apollo-server-lambda'
 export default gql`
 type Query {
     getImage(route: String!): Image
-    getFolder(route: String!): [Image]
+    getFolder(route: String!): FolderInfo
 }
 
 type Mutation {

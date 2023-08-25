@@ -1,11 +1,14 @@
 import { Resolvers } from "./__generated__/resolvers-types";
-import { getExample, addExample } from "./functions/example";
+import { removeImage, uploadImage } from "./functions/mutations";
+import { getFolder, getImage } from "./functions/queries";
 
 export const resolvers: Resolvers = {
     Query: {
-        getExample: () => getExample()
+        getImage: (_, args) => getImage(args),
+        getFolder: (_, args) => getFolder(args),
     },
     Mutation: {
-        addExample: (_, args) => addExample(args)
+        uploadImage: (_, args) => uploadImage(args),
+        removeImage: (_, args) => removeImage(args)
     }
 }

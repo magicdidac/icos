@@ -1,4 +1,4 @@
-import sharp = require("sharp");
+import sharp from "sharp";
 import { IImageFile } from "../types";
 import { Client } from "basic-ftp";
 import { Readable } from "stream";
