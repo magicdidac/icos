@@ -1,5 +1,5 @@
-import { Upload } from "@mui/icons-material"
-import { Button, Stack, Typography } from "@mui/material"
+// import { Upload } from "@mui/icons-material"
+// import { Button, Stack, Typography } from "@mui/material"
 import { IImageFile } from "../types"
 import { DragEvent, useRef, useState } from "react"
 
@@ -48,60 +48,62 @@ export const ImageDropper = ({ image, onChangeImage }: IImageDropperProps) => {
     onFileSelect(event.dataTransfer.files)
   }
 
-  if (!image) {
-    return (
-      <div
-        style={{
-          border: '2px dashed #6daaca',
-          borderRadius: '1rem',
-          width: '100%',
-          height: '300px',
-          cursor: 'pointer',
-        }}
-        onClick={openInput}
-        onDragOver={onDragOver}
-        onDragLeave={onDragLeave}
-        onDrop={onDrop}
-      >
-        <Stack
-          direction='column'
-          justifyContent='center'
-          alignItems='center'
-          height='100%'
-        >
-          {isDragging ?
-            <Typography variant="body1">Drop the image here</Typography>
-            : <>
-              <Upload color='primary' fontSize='large' />
-              <Typography variant='body1'>Drag and drop your image here...</Typography>
-              <Typography variant='mini'>Or click to browse it...</Typography>
-            </>
-          }
-        </Stack>
-        <input style={{ display: 'none' }} type='file' ref={fileInputRef} accept="image/png, image/jpeg" onChange={(event) => onFileSelect(event.target.files)} />
-      </div>
-    )
-  } else {
-    return (
-      <div
-        style={{
-          borderRadius: '1rem',
-          width: '100%',
-          height: '300px',
-        }}
-      >
-        <Stack direction='column' alignItems='end'>
-          <Button size='small' style={{ padding: '0' }} onClick={() => onChangeImage(undefined)}>x</Button>
-          <div
-            style={{
-              width: '100%',
-              height: '250px'
-            }}
-          >
-            <img alt={image.name} src={image.url} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-          </div>
-        </Stack>
-      </div>
-    )
-  }
+  return (<>Dropper</>)
+
+  // if (!image) {
+  //   return (
+  //     <div
+  //       style={{
+  //         border: '2px dashed #6daaca',
+  //         borderRadius: '1rem',
+  //         width: '100%',
+  //         height: '300px',
+  //         cursor: 'pointer',
+  //       }}
+  //       onClick={openInput}
+  //       onDragOver={onDragOver}
+  //       onDragLeave={onDragLeave}
+  //       onDrop={onDrop}
+  //     >
+  //       <Stack
+  //         direction='column'
+  //         justifyContent='center'
+  //         alignItems='center'
+  //         height='100%'
+  //       >
+  //         {isDragging ?
+  //           <Typography variant="body1">Drop the image here</Typography>
+  //           : <>
+  //             <Upload color='primary' fontSize='large' />
+  //             <Typography variant='body1'>Drag and drop your image here...</Typography>
+  //             <Typography variant='mini'>Or click to browse it...</Typography>
+  //           </>
+  //         }
+  //       </Stack>
+  //       <input style={{ display: 'none' }} type='file' ref={fileInputRef} accept="image/png, image/jpeg" onChange={(event) => onFileSelect(event.target.files)} />
+  //     </div>
+  //   )
+  // } else {
+  //   return (
+  //     <div
+  //       style={{
+  //         borderRadius: '1rem',
+  //         width: '100%',
+  //         height: '300px',
+  //       }}
+  //     >
+  //       <Stack direction='column' alignItems='end'>
+  //         <Button size='small' style={{ padding: '0' }} onClick={() => onChangeImage(undefined)}>x</Button>
+  //         <div
+  //           style={{
+  //             width: '100%',
+  //             height: '250px'
+  //           }}
+  //         >
+  //           <img alt={image.name} src={image.url} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+  //         </div>
+  //       </Stack>
+  //     </div>
+  //   )
+  // }
 }
