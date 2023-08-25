@@ -1,4 +1,4 @@
-// import sharp from "sharp";
+import sharp from "sharp";
 import { IImageFile } from "../types";
 // import { Client } from "basic-ftp";
 import { Readable } from "stream";
@@ -9,10 +9,11 @@ import { Readable } from "stream";
 export default async (route: string, image: IImageFile): Promise<string> => {
   if (!route.startsWith('/images/')) throw 'The route must start with `/images/`'
   if (!route.endsWith('/')) throw 'The route must end with `/`'
+  const imageName = image.name.split('.')[0] + '.webp'
+  const imageUrl = `https://icos.magicdidac.com${route}${imageName}`
+  const imageBuffer = await sharp(image.url).webp({ quality: 50 }).toBuffer()
+
   return 'Hello'
-  // const imageName = image.name.split('.')[0] + '.webp'
-  // const imageUrl = `https://icos.magicdidac.com${route}${imageName}`
-  // const imageBuffer = await sharp(image.url).webp({ quality: 50 }).toBuffer()
 
   // await ftpClient.access({
   //   host: 'ftp.magicdidac.com',

@@ -63,20 +63,23 @@ export const ImageDropper = ({ image, onChangeImage }: IImageDropperProps) => {
         onDragLeave={onDragLeave}
         onDrop={onDrop}
       >
-        <Stack
-          direction='column'
-          justifyContent='center'
-          alignItems='center'
-          height='100%'
-        >
-          {isDragging ?
-            <Typography variant="body1">Drop the image here</Typography>
-            : <>
-              <Upload color='primary' fontSize='large' />
-              <Typography variant='body1'>Drag and drop your image here...</Typography>
-              <Typography variant='mini'>Or click to browse it...</Typography>
-            </>
-          }
+        <Stack>
+          <Stack
+            direction='column'
+            justifyContent='center'
+            alignItems='center'
+            height='100%'
+          >
+            {isDragging ?
+              <Typography variant="body1">Drop the image here</Typography>
+              : <>
+                <Upload color='primary' fontSize='large' />
+                <Typography variant='body1'>Drag and drop your image here...</Typography>
+                <Typography variant='mini'>Or click to browse it...</Typography>
+              </>
+            }
+          </Stack>
+          <Typography color='primary' variant="mini">powered by @magicdidac/icos</Typography>
         </Stack>
         <input style={{ display: 'none' }} type='file' ref={fileInputRef} accept="image/png, image/jpeg" onChange={(event) => onFileSelect(event.target.files)} />
       </div>
