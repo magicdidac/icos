@@ -79,7 +79,6 @@ export const ImageDropper = ({ image, onChangeImage }: IImageDropperProps) => {
               </>
             }
           </Stack>
-          <Typography color='primary' variant="mini">powered by @magicdidac/icos</Typography>
         </Stack>
         <input style={{ display: 'none' }} type='file' ref={fileInputRef} accept="image/png, image/jpeg" onChange={(event) => onFileSelect(event.target.files)} />
       </div>

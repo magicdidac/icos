@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogActions, DialogContent, ThemeProvider } from "@mui/material"
+import { Button, Dialog, DialogActions, DialogContent, ThemeProvider, Typography } from "@mui/material"
 import { useState } from "react"
 import { IImageFile } from "../types"
 import { ImageDropper } from "./ImageDropper"
@@ -49,6 +49,7 @@ export default ({ open, route, onClose, onSubmitImage }: IICOSDialogProps) => {
       >
         <DialogContent style={{ overflow: 'hidden' }}>
           <ImageDropper image={image} onChangeImage={setImage} />
+          <Typography color='primary' variant="mini">powered by @magicdidac/icos</Typography>
         </DialogContent>
         <DialogActions>
           <Button variant='text' onClick={handleClose}>Cancel</Button>
