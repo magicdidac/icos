@@ -5,3 +5,4 @@ import { GQLStack } from '../lib/GQLStack';
 
 const app = new cdk.App();
 new GQLStack(app, 'icos-stack', {});
+new GQLStack(app, 'icos-api-stack', {});

@@ -1,0 +1,55 @@
+name: ICOS API Deploy
+
+on:
+  workflow_call:
+    secrets:
+      AWS_ACCESS:
+        required: true
+      AWS_SECRET:
+        required: true
+      FTP_ACCOUNT:
+        required: true
+      FTP_PASSWORD:
+        required: true
+      GRAPHQL:
+        required: true
+  push:
+    branches:
+      - "main"
+    paths:
+      - "cdk/**"
+      - "icosApi/**"
+      - ".github/workflows/deploy-icosApi.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Node setup
+        uses: actions/setup-node@v3
+        with: 
+          node-version: 18
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET }}
+          aws-region: us-east-1
+          
+      - name: Install API modules
+        run: yarn install:api
+
+      - name: Deploy API
+        run: yarn deploy:icosApi
+        env:
+          FTP_ACCOUNT: ${{ secrets.FTP_ACCOUNT }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          GRAPHQL_ENDPOINT: ${{ secrets.GRAPHQL }}
+      
+

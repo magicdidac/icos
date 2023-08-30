@@ -3,11 +3,12 @@
     "private": true,
     "scripts": {
         "install:web": "cd web && yarn",
-        "install:api": "cd cdk && yarn && cd ../graphql && yarn",
+        "install:api": "cd cdk && yarn && cd ../graphql && yarn && cd ../icosApi && yarn",
         "install:package": "cd package && yarn",
         "build:web": "cd web && yarn build",
         "build:package": "cd package && yarn build",
         "deploy:api": "cd cdk && yarn deploy",
+        "deploy:icosApi": "cd cdk && yarn deploy:icosApi",
         "start": "cd web && yarn start",
         "start:api": "cd graphql && yarn local"
     }

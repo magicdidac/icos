@@ -8,7 +8,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "cdk": "cdk",
-    "deploy": "npx cdk deploy --require-approval never icos-stack"
+    "deploy": "npx cdk deploy --require-approval never icos-stack",
+    "deploy:icosApi": "npx cdk deploy --require-approval never icos-api-stack"
   },
   "devDependencies": {
     "@types/node": "20.5.4",
