@@ -1,6 +1,7 @@
-import sharp = require("sharp")
 import { failure, success } from "../utils"
 import { Client } from "basic-ftp"
+import imagemin from "imagemin"
+import imageminWebp from "imagemin-webp"
 import { Readable } from "stream"
 
 const ftpClient = new Client()
@@ -12,7 +13,11 @@ export default async (route: string, name: string, image: string) => {
   const imageName = name.split('.')[0] + '.webp'
   const completeRoute = route + imageName
   const imageUrl = `https://icos.magicdidac.com${completeRoute}`
-  const imageBuffer = await sharp(image).webp({ quality: 50 }).toBuffer()
+  const imageBuffer = await imagemin.buffer(Buffer.from(image), {
+    plugins: [
+      imageminWebp({ quality: 50 })
+    ]
+  })
 
   await ftpClient.access({
     host: 'ftp.magicdidac.com',

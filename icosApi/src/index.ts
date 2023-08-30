@@ -1,5 +1,5 @@
 import { uploadImage } from "./core"
-import { failure, notFound, success } from "./utils"
+import { failure, notFound } from "./utils"
 
 export const handler = async (event) => {
   console.log('EVENT:', JSON.stringify(event))
