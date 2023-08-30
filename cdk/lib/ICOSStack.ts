@@ -21,15 +21,15 @@ export class ICOSStack extends Stack {
       }
     })
 
-    const api = new RestApi(this, 'restapi', {
+    const api = new RestApi(this, 'icosapi', {
       defaultCorsPreflightOptions: {
         allowHeaders: Cors.DEFAULT_HEADERS,
         allowOrigins: Cors.ALL_ORIGINS,
         allowMethods: [HttpMethod.POST]
       },
-      restApiName: 'icos-API'
+      restApiName: 'icosUpload-API'
     })
 
-    api.root.addMethod(HttpMethod.POST, new LambdaIntegration(lambda))
+    api.root.addResource('upload').addMethod(HttpMethod.POST, new LambdaIntegration(lambda))
   }
 }
