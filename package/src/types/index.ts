@@ -1,4 +1,5 @@
 export interface IImageFile {
-  name: string,
+  name: string
   url: string
+  image: string
 }

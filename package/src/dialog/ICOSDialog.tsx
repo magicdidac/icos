@@ -31,7 +31,7 @@ export default ({ open, route, onClose, onSubmitImage }: IICOSDialogProps) => {
   const handleSubmit = async () => {
     setSubmitting(true)
     if (image) {
-      const uploadedImage = await uploadImage(route, image)
+      const uploadedImage = await uploadImage(route, image.name, image.image)
       onSubmitImage(uploadedImage)
       onClearAll()
     } else {

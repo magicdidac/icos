@@ -1,17 +1,15 @@
-import { IImageFile } from "../types";
 import axios from 'axios';
-import fs from 'fs';
 
-export default async (route: string, image: IImageFile): Promise<string> => {
+export default async (route: string, name: string, image: string): Promise<string> => {
   if (!route.startsWith('/images/')) throw 'The route must start with `/images/`'
   if (!route.endsWith('/')) throw 'The route must end with `/`'
-  const imageName = image.name.split('.')[0] + '.webp'
+  const imageName = name.split('.')[0] + '.webp'
   const imageUrl = `https://icos.magicdidac.com${route}${imageName}`
 
   const response = await axios.post('https://joaxmvql14.execute-api.us-east-1.amazonaws.com/prod/upload', {
-    name: image.name,
+    name: name,
     route: route,
-    image: fs.createReadStream(image.url)
+    image: image
   })
 
   console.log(response.data)

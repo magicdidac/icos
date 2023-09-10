@@ -19,15 +19,18 @@ export const ImageDropper = ({ image, onChangeImage }: IImageDropperProps) => {
     }
   }
 
-  const onFileSelect = (files: FileList | null) => {
+  const onFileSelect = async (files: FileList | null) => {
     if (!files) return
     if (files.length === 0) return
     const image = files[0]
 
     if (image.type.split('/')[0] !== 'image') return
+
+    const imageText = await image.text()
     onChangeImage({
       name: image.name,
-      url: URL.createObjectURL(image)
+      url: URL.createObjectURL(image),
+      image: imageText
     })
   }
 
