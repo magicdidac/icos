@@ -1,7 +1,6 @@
 import { failure, success } from "../utils"
 import { Client } from "basic-ftp"
-import sharp = require("sharp")
-import { Readable } from "stream"
+import { arrayBufferToWebP } from "webp-converter-browser"
 
 const ftpClient = new Client()
 
@@ -12,7 +11,7 @@ export default async (route: string, name: string, image: string) => {
   const imageName = name.split('.')[0] + '.webp'
   const completeRoute = route + imageName
   const imageUrl = `https://icos.magicdidac.com${completeRoute}`
-  const imageBuffer = await sharp(Buffer.from(image)).webp({ quality: 50 }).toBuffer()
+  const imageBuffer = await (await arrayBufferToWebP(Buffer.from(image), { quality: .5 })).text()
 
   await ftpClient.access({
     host: 'ftp.magicdidac.com',
@@ -21,7 +20,7 @@ export default async (route: string, name: string, image: string) => {
     secure: false
   })
 
-  await ftpClient.uploadFrom(Readable.from(imageBuffer), completeRoute)
+  await ftpClient.uploadFrom(imageBuffer, completeRoute)
   ftpClient.close()
 
   return success({ url: imageUrl })

@@ -7,6 +7,7 @@ export const handler = async (event) => {
   try {
     switch (event.httpMethod) {
       case 'POST':
+        console.log('BODY:', event.body)
         if (event.body && event.body.route && event.body.name && event.body.image) {
           return await uploadImage(event.body.route, event.body.name, event.body.image)
         }
